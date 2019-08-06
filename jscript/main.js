@@ -7,6 +7,7 @@ console.log("Hello World!")
         //For Loop Length = Characters    
             //Create Button A-Z
             //Add Listener
+                //Listener Calls "Button Click"
             //Append to DOM Element
 
 //Black Box "Add Boxes"
@@ -31,3 +32,31 @@ console.log("Hello World!")
     //Reset Alien Score
     //Reset Marine Score
 
+//Black Box Function "Button Click"
+    //For Loop to check through title array
+    //Disable Button
+    //Change Background Color
+        //If letter is found
+            //Place letter in box (Index based?)
+            //Add 1 to win tracker
+            //Add 1 to loop success tracker
+            //Continue loop to check for letters
+        //If Success Tracker < 1
+            //Remove Marine
+            //Add Alien
+            //Add 1 to round score
+            //Check round score
+                //If Score > Title Character Length
+                    //You Lose!
+                    //Add 1 to Alien Score
+                    //Place all text in Boxes
+                    //Exit all loops
+                //If Score < Title Character Lenght
+                    //Continue
+    //Check In Tracker
+        //If Tracker > Length
+            //You Win!
+            //Add 1 to Marine Score
+        //If Not
+            //Continue
+        
