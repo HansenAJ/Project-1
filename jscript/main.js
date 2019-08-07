@@ -8,20 +8,9 @@ for (let i = 65; i <=90; i++){
     keyBtn.innerHTML = String.fromCharCode(i);
     keyBtn.classList.add(String.fromCharCode(i), "keyboardBtn");
     //**********Test functionality only. Replace with "Button Click" Function once it is created**********
-    keyBtn.addEventListener("click", function(){
-        console.log(this.innerHTML);
-    })
+    keyBtn.addEventListener("click", buttonClick);
     document.getElementsByClassName("keyboard")[0].appendChild(keyBtn); 
 }
-
-//Black Box "Add Boxes"
-    //Logic to randomly select Item from Array.
-    //Logic to seperate characters in selected item into their own Array.
-    //Logic to create Divs of Blank Boxes for each character in this new Array.
-                        //Font Size 0 for invisible text
-        //For Loop Length = Characters
-            //Create Box 1-X
-            //Append to DOM Element
 
 //Clears current 'blank boxes', resets 'round counter', and selects new word
 document.getElementsByClassName("newGame")[0].addEventListener("click", function(){
@@ -40,22 +29,29 @@ document.getElementsByClassName("newGame")[0].addEventListener("click", function
         blankBox.classList.add("emptyBox")
         document.getElementsByClassName("boxes")[0].appendChild(blankBox); 
     }
-});
-
-
-//Black Box "New Game"
-    //Logic for New Game Button
-        //Call "Add Boxes"
         //Add Six Space Marines
         //Remove All Aliens
         //Reset 'Round Score'
         //Reset 'Win Score'
+});
 
-//Logic for Reset Button
-    //Call "New Game"
-    //Reset Alien Score
-    //Reset Marine Score
-
+function buttonClick(){
+    let currentBtn = this.innerHTML;
+    console.log("You clicked " + currentBtn)
+    let titleLength = document.querySelectorAll(".emptyBox").length;
+    console.log("Length Of Your Title= " + titleLength)
+    for (i =0; i <= titleLength; i++){
+        let currentBox = document.getElementsByClassName("emptyBox")[i];
+        let boxCheck = (currentBox.innerHTML).toUpperCase();
+        console.log("You clicked " + currentBtn)
+        console.log("The Data in This Box is " + boxCheck)
+        if(currentBtn == boxCheck){
+            console.log("If Tripped!")
+            //currentBox.classList.remove("emptyBox")
+            currentBox.classList.add("fullBox")
+        }
+    }
+}
 //Black Box Function "Button Click"
     //For Loop to check through title array
     //Disable Button
@@ -84,3 +80,9 @@ document.getElementsByClassName("newGame")[0].addEventListener("click", function
         //If Not
             //Continue
         
+
+
+//Logic for Reset Button
+    //Call "New Game"
+    //Reset Alien Score
+    //Reset Marine Score
