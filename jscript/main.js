@@ -12,9 +12,13 @@ console.log("Hello World!")
                 //Listener Calls "Button Click"
             //Append to DOM Element
 
-for (i = 65; i <90; i++){
+for (i = 65; i <=90; i++){
     var keyBtn = document.createElement("BUTTON"); 
     keyBtn.innerHTML = String.fromCharCode(i);
+    keyBtn.classList.add(String.fromCharCode(i));
+    keyBtn.addEventListener("click", function(){
+        console.log(this.innerHTML);
+    })
     document.getElementsByClassName("keyboard")[0].appendChild(keyBtn); 
 }
 
