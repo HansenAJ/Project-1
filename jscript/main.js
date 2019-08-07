@@ -29,6 +29,10 @@ document.getElementsByClassName("newGame")[0].addEventListener("click", function
         blankBox.classList.add("emptyBox")
         document.getElementsByClassName("boxes")[0].appendChild(blankBox); 
     }
+    let keyboardTotal = document.getElementsByClassName("keyboardBtn").length;
+    for (i = 0; i < keyboardTotal; i++){
+        document.getElementsByClassName("keyboardBtn")[i].disabled = false;
+    }
         //Add Six Space Marines
         //Remove All Aliens
         //Reset 'Round Score'
@@ -36,11 +40,12 @@ document.getElementsByClassName("newGame")[0].addEventListener("click", function
 });
 
 function buttonClick(){
+    this.disabled = true;
     let currentBtn = this.innerHTML;
     console.log("You clicked " + currentBtn)
     let titleLength = document.querySelectorAll(".emptyBox").length;
     console.log("Length Of Your Title= " + titleLength)
-    for (i =0; i <= titleLength; i++){
+    for (i =0; i <= (titleLength - 1); i++){
         let currentBox = document.getElementsByClassName("emptyBox")[i];
         let boxCheck = (currentBox.innerHTML).toUpperCase();
         console.log("You clicked " + currentBtn)
