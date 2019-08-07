@@ -1,21 +1,13 @@
-console.log("Hello World!")
+console.log("Hello World!");
 
+let movieTitles = ["StarWars", "StarTrek"];
 
-
-//Create array of Sci-Fi Movie Names.
-
-//Black Box One-time Run at App Load
-    //Use for-loop to generate on-screen keyboard and add listeners to each button.
-        //For Loop Length = Characters    
-            //Create Button A-Z
-            //Add Listener
-                //Listener Calls "Button Click"
-            //Append to DOM Element
-
+//Creates On-screen keyboard and assigns individual classes to each character as well as styling class.
 for (i = 65; i <=90; i++){
     var keyBtn = document.createElement("BUTTON"); 
     keyBtn.innerHTML = String.fromCharCode(i);
-    keyBtn.classList.add(String.fromCharCode(i));
+    keyBtn.classList.add(String.fromCharCode(i), "keyboardBtn");
+    //**********Test functionality only. Replace with "Button Click" Function once it is created**********
     keyBtn.addEventListener("click", function(){
         console.log(this.innerHTML);
     })
@@ -30,6 +22,12 @@ for (i = 65; i <=90; i++){
         //For Loop Length = Characters
             //Create Box 1-X
             //Append to DOM Element
+
+    //assigns random title from array to 'movie'
+    let movie = movieTitles[Math.floor(Math.random()*movieTitles.length)];
+    console.log(movie);
+    let movieArray = movie.split('');
+    console.log(movieArray[4]);
 
 //Black Box "New Game"
     //Logic for New Game Button
