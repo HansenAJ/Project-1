@@ -3,7 +3,7 @@ console.log("Hello World!");
 let movieTitles = ["StarWars", "StarTrek", "StarShipTroopers"];
 
 //Creates On-screen keyboard and assigns individual classes to each character as well as styling class.
-for (i = 65; i <=90; i++){
+for (let i = 65; i <=90; i++){
     let keyBtn = document.createElement("BUTTON"); 
     keyBtn.innerHTML = String.fromCharCode(i);
     keyBtn.classList.add(String.fromCharCode(i), "keyboardBtn");
@@ -23,16 +23,24 @@ for (i = 65; i <=90; i++){
             //Create Box 1-X
             //Append to DOM Element
 
+//Clears current 'blank boxes', resets 'round counter', and selects new word
+document.getElementsByClassName("newGame")[0].addEventListener("click", function(){
+    //removes old box container
+    let boxHolder = document.getElementsByClassName("boxes")[0];
+    boxHolder.remove(0);
+    //creates and appends new box container
+    boxHolder = document.createElement("div");
+    boxHolder.classList.add("boxes");
+    document.getElementsByClassName("motherBox")[0].appendChild(boxHolder);
     //assigns random title from array to 'movie' and breaks individual letters into each array
     let movieArray = (movieTitles[Math.floor(Math.random()*movieTitles.length)]).split('');
-    console.log(movieArray[4]);
-
-for (i = 0; i < movieArray.length; i++){
-    let blankBox = document.createElement("DIV"); 
-    blankBox.innerHTML = movieArray[i];
-    blankBox.classList.add("emptyBox")
-    document.getElementsByClassName("boxes")[0].appendChild(blankBox); 
-}
+    for (let i = 0; i < movieArray.length; i++){
+        let blankBox = document.createElement("DIV"); 
+        blankBox.innerHTML = movieArray[i];
+        blankBox.classList.add("emptyBox")
+        document.getElementsByClassName("boxes")[0].appendChild(blankBox); 
+    }
+});
 
 
 //Black Box "New Game"
