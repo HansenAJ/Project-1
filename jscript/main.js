@@ -1,5 +1,7 @@
 console.log("Hello World!")
 
+
+
 //Create array of Sci-Fi Movie Names.
 
 //Black Box One-time Run at App Load
@@ -9,6 +11,12 @@ console.log("Hello World!")
             //Add Listener
                 //Listener Calls "Button Click"
             //Append to DOM Element
+
+for (i = 65; i <90; i++){
+    var keyBtn = document.createElement("BUTTON"); 
+    keyBtn.innerHTML = String.fromCharCode(i);
+    document.getElementsByClassName("keyboard")[0].appendChild(keyBtn); 
+}
 
 //Black Box "Add Boxes"
     //Logic to randomly select Item from Array.
