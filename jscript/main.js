@@ -1,10 +1,10 @@
 console.log("Hello World!");
 
-let movieTitles = ["StarWars", "StarTrek"];
+let movieTitles = ["StarWars", "StarTrek", "StarShipTroopers"];
 
 //Creates On-screen keyboard and assigns individual classes to each character as well as styling class.
 for (i = 65; i <=90; i++){
-    var keyBtn = document.createElement("BUTTON"); 
+    let keyBtn = document.createElement("BUTTON"); 
     keyBtn.innerHTML = String.fromCharCode(i);
     keyBtn.classList.add(String.fromCharCode(i), "keyboardBtn");
     //**********Test functionality only. Replace with "Button Click" Function once it is created**********
@@ -18,16 +18,22 @@ for (i = 65; i <=90; i++){
     //Logic to randomly select Item from Array.
     //Logic to seperate characters in selected item into their own Array.
     //Logic to create Divs of Blank Boxes for each character in this new Array.
-                        //Invisible text in each box for tracking? Or secondary non-displayed box for tracking.
+                        //Font Size 0 for invisible text
         //For Loop Length = Characters
             //Create Box 1-X
             //Append to DOM Element
 
-    //assigns random title from array to 'movie'
-    let movie = movieTitles[Math.floor(Math.random()*movieTitles.length)];
-    console.log(movie);
-    let movieArray = movie.split('');
+    //assigns random title from array to 'movie' and breaks individual letters into each array
+    let movieArray = (movieTitles[Math.floor(Math.random()*movieTitles.length)]).split('');
     console.log(movieArray[4]);
+
+for (i = 0; i < movieArray.length; i++){
+    let blankBox = document.createElement("DIV"); 
+    blankBox.innerHTML = movieArray[i];
+    blankBox.classList.add("emptyBox")
+    document.getElementsByClassName("boxes")[0].appendChild(blankBox); 
+}
+
 
 //Black Box "New Game"
     //Logic for New Game Button
