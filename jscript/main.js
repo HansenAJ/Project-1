@@ -1,5 +1,6 @@
 console.log("Hello World!");
-let roundScore =0;
+let roundScore = 0;
+let roundWrong = 0;
 
 let movieTitles = ["Star Wars", "Star Trek", "Starship Troopers"];
 
@@ -17,6 +18,7 @@ for (let i = 65; i <=90; i++){
 document.getElementsByClassName("newGame")[0].addEventListener("click", function(){
     //removes old box container
     roundScore = 0;
+    roundWrong = 0;
     let boxHolder = document.getElementsByClassName("boxes")[0];
     boxHolder.remove(0);
     //creates and appends new box container
@@ -51,6 +53,7 @@ document.getElementsByClassName("newGame")[0].addEventListener("click", function
 function buttonClick(){
     //Disables button for remainder of round to prevent guessing same letter twice
     this.disabled = true;
+    let checkScore = 0;
     let currentBtn = this.innerHTML;
     console.log("You clicked " + currentBtn)
     //Gets total number of empty boxes available
@@ -68,10 +71,22 @@ function buttonClick(){
             currentBox.classList.add("fullBox")
             roundScore = ++roundScore;
             console.log(roundScore);
+            checkScore = ++checkScore;
+            console.log(checkScore)
         }
     }
+    if (checkScore < 1){
+        console.log(checkScore)
+        roundWrong = ++roundWrong;
+    }
+    //Checks to see if boxes have been filled for winning game, then adds to Marine Score counter
     if (roundScore >= titleLength){
-        alert("You Win!")
+        alert("You Win!");
+        /* ****** FIND A SMARTER WAY TO DO THIS ********* */
+        document.getElementsByClassName("marineScore")[0].innerHTML = parseFloat(document.getElementsByClassName("marineScore")[0].innerHTML) + 1;
+    } else if (roundWrong == 6){
+        alert("You Lose!")
+        document.getElementsByClassName("alienScore")[0].innerHTML = parseFloat(document.getElementsByClassName("alienScore")[0].innerHTML) + 1;
     }
 }
 //Black Box Function "Button Click"
