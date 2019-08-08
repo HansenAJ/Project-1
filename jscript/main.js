@@ -9,6 +9,7 @@ for (let i = 65; i <=90; i++){
     let keyBtn = document.createElement("BUTTON"); 
     keyBtn.innerHTML = String.fromCharCode(i);
     keyBtn.classList.add(String.fromCharCode(i), "keyboardBtn");
+    keyBtn.setAttribute("disabled", "true");
     //**********Test functionality only. Replace with "Button Click" Function once it is created**********
     keyBtn.addEventListener("click", buttonClick);
     document.getElementsByClassName("keyboard")[0].appendChild(keyBtn); 
@@ -98,6 +99,9 @@ function buttonClick(){
         document.getElementsByClassName("marineScore")[0].innerHTML = parseFloat(document.getElementsByClassName("marineScore")[0].innerHTML) + 1;
     } else if (roundWrong == 6){
         alert("You Lose!")
+        for (i =0; i <26; ++i){
+            document.getElementsByClassName("keyboardBtn")[i].setAttribute("disabled", "true");
+        }
         document.getElementsByClassName("alienScore")[0].innerHTML = parseFloat(document.getElementsByClassName("alienScore")[0].innerHTML) + 1;
     }
 }
