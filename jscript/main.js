@@ -1,6 +1,7 @@
 console.log("Hello World!");
+let roundScore =0;
 
-let movieTitles = ["StarWars", "StarTrek", "StarShipTroopers"];
+let movieTitles = ["Star Wars", "Star Trek", "Starship Troopers"];
 
 //Creates On-screen keyboard and assigns individual classes to each character as well as styling class.
 for (let i = 65; i <=90; i++){
@@ -15,6 +16,7 @@ for (let i = 65; i <=90; i++){
 //Clears current 'blank boxes', resets 'round counter', and selects new word
 document.getElementsByClassName("newGame")[0].addEventListener("click", function(){
     //removes old box container
+    roundScore = 0;
     let boxHolder = document.getElementsByClassName("boxes")[0];
     boxHolder.remove(0);
     //creates and appends new box container
@@ -26,25 +28,35 @@ document.getElementsByClassName("newGame")[0].addEventListener("click", function
     for (let i = 0; i < movieArray.length; i++){
         let blankBox = document.createElement("DIV"); 
         blankBox.innerHTML = movieArray[i];
-        blankBox.classList.add("emptyBox")
+        //
+        console.log(blankBox.innerHTML)
+        if(blankBox.innerHTML == ' '){
+            blankBox.classList.add("spaceBox")
+        }else{
+            blankBox.classList.add("emptyBox")
+        }
         document.getElementsByClassName("boxes")[0].appendChild(blankBox); 
     }
     let keyboardTotal = document.getElementsByClassName("keyboardBtn").length;
+    //gets count of all keyboard buttons and re-enables them from previous round
     for (i = 0; i < keyboardTotal; i++){
         document.getElementsByClassName("keyboardBtn")[i].disabled = false;
     }
-        //Add Six Space Marines
+        //Add up to Six Space Marines
         //Remove All Aliens
         //Reset 'Round Score'
         //Reset 'Win Score'
 });
 
 function buttonClick(){
+    //Disables button for remainder of round to prevent guessing same letter twice
     this.disabled = true;
     let currentBtn = this.innerHTML;
     console.log("You clicked " + currentBtn)
+    //Gets total number of empty boxes available
     let titleLength = document.querySelectorAll(".emptyBox").length;
     console.log("Length Of Your Title= " + titleLength)
+    //Checks button clicked aagainst each letter in empty boxes
     for (i =0; i <= (titleLength - 1); i++){
         let currentBox = document.getElementsByClassName("emptyBox")[i];
         let boxCheck = (currentBox.innerHTML).toUpperCase();
@@ -54,18 +66,16 @@ function buttonClick(){
             console.log("If Tripped!")
             //currentBox.classList.remove("emptyBox")
             currentBox.classList.add("fullBox")
+            roundScore = ++roundScore;
+            console.log(roundScore);
         }
+    }
+    if (roundScore >= titleLength){
+        alert("You Win!")
     }
 }
 //Black Box Function "Button Click"
-    //For Loop to check through title array
-    //Disable Button
-    //Change Background Color
-        //If letter is found
-            //Place letter in box (Index based?)
-            //Add 1 to win tracker
-            //Add 1 to loop success tracker
-            //Continue loop to check for letters
+
         //If Success Tracker < 1
             //Remove Marine
             //Add Alien

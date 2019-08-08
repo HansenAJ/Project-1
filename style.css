@@ -10,6 +10,16 @@
     width: 20px;
     height: 20px;
 }
+
+.spaceBox{
+    font-size: 0px;
+    border: 5px;
+    border-color:red;
+    border-style: solid;
+    width: 20px;
+    height: 20px;
+}
+
 .fullBox{
     font-size: 15px;
     border: 5px;
