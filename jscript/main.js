@@ -21,6 +21,14 @@ document.getElementsByClassName("newGame")[0].addEventListener("click", function
     roundWrong = 0;
     let boxHolder = document.getElementsByClassName("boxes")[0];
     boxHolder.remove(0);
+    //Adds up to 6 fresh Marines, Removes up to 6 active Aliens
+    for (i =0; i < 6; ++i){
+        showImage("marineImage", i);
+        hideImage("alienImage", i);
+    }
+    //Remove all Aliens
+    //Remove All Marines
+    //Add 6 Marines
     //creates and appends new box container
     boxHolder = document.createElement("div");
     boxHolder.classList.add("boxes");
@@ -78,6 +86,10 @@ function buttonClick(){
     if (checkScore < 1){
         console.log(checkScore)
         roundWrong = ++roundWrong;
+        //Remove Marine
+        hideImage("marineImage", (roundWrong - 1));
+        //Add Alien
+        showImage("alienImage", (roundWrong - 1));
     }
     //Checks to see if boxes have been filled for winning game, then adds to Marine Score counter
     if (roundScore >= titleLength){
@@ -89,27 +101,16 @@ function buttonClick(){
         document.getElementsByClassName("alienScore")[0].innerHTML = parseFloat(document.getElementsByClassName("alienScore")[0].innerHTML) + 1;
     }
 }
-//Black Box Function "Button Click"
 
-        //If Success Tracker < 1
-            //Remove Marine
-            //Add Alien
-            //Add 1 to round score
-            //Check round score
-                //If Score > Title Character Length
-                    //You Lose!
-                    //Add 1 to Alien Score
-                    //Place all text in Boxes
-                    //Exit all loops
-                //If Score < Title Character Lenght
-                    //Continue
-    //Check In Tracker
-        //If Tracker > Length
-            //You Win!
-            //Add 1 to Marine Score
-        //If Not
-            //Continue
-        
+//Function Add Image
+function showImage(x,y){
+    document.getElementsByClassName(x)[y].classList.remove("invisible")
+};
+//Function Remove image
+function hideImage(x,y){
+    document.getElementsByClassName(x)[y].classList.add("invisible")
+    console.log(x + y);
+};
 
 
 //Logic for Reset Button
