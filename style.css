@@ -78,7 +78,7 @@ img{
 }
 
 .invisible{
-    display: none;
+    visibility: hidden;
 }
 
 .displayBoard{
