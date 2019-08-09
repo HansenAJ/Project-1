@@ -38,6 +38,16 @@ h1{
     align-items: center;
 }
 
+.keyboardBtn{
+    background-color: black;
+    color: green;
+    border-color: green;
+    font-size: 30px;
+}
+.keyboardDisab{
+    background-color: gray;
+}
+
 .motherBox{
     display: flex;
     width: 50%;
@@ -64,9 +74,7 @@ h1{
     justify-content: center;
     align-items: center;
 }
-.keyboardBtn{
-    font-size: 20px;
-}
+
 .boardBox{
     display: flex;
     width: 100%;
@@ -161,4 +169,12 @@ img{
     display: flex;
     justify-content: space-around;
     width: 50%;
+}
+.newGame, .resetGame{
+    font-size: 30px;
+    width: auto;
+    color: red;
+    background-color: black;
+    border-radius: 5px;
+    border-color: olivedrab;
 }

@@ -70,6 +70,7 @@ function newGame(){
 function buttonClick(){
     //Disables button for remainder of round to prevent guessing same letter twice
     this.disabled = true;
+    //this.target.stlye.backgroundColor = "gray";
     let checkScore = 0;
     let currentBtn = this.innerHTML;
     console.log("You clicked " + currentBtn)
