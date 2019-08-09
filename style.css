@@ -1,6 +1,6 @@
 body{
     background-image: url("images/bunker.jpg");
-    background-size: contain;
+
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -12,6 +12,7 @@ main{
 }
 h1{
     font-size: 75px;
+    text-align: center;
 }
 
 .instructions{
@@ -83,7 +84,7 @@ img{
 .displayBoard{
     display: flex;
     width: 30%;
-    height: 300px;
+    height: auto;
     border: 5px;
     border-color: black;
     border-style: solid;
@@ -118,4 +119,24 @@ img{
     border-style: solid;
     width: 20px;
     height: 20px;
+}
+
+.scoreHolder{
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+}
+
+.scoreBox{
+    background-color: black;
+    border: 5px;
+    color: red;
+    border-style: solid;
+    border-color: olivedrab;
+}
+.alienScore{
+    flex-direction: row;
+}
+.marineScore{
+    flex-direction: row-reverse;
 }

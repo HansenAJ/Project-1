@@ -95,13 +95,12 @@ function buttonClick(){
     //Checks to see if boxes have been filled for winning game, then adds to Marine Score counter
     if (roundScore >= titleLength){
         alert("You Win!");
+        roundEnd();
         /* ****** FIND A SMARTER WAY TO DO THIS ********* */
         document.getElementsByClassName("marineScore")[0].innerHTML = parseFloat(document.getElementsByClassName("marineScore")[0].innerHTML) + 1;
     } else if (roundWrong == 6){
         alert("You Lose!")
-        for (i =0; i <26; ++i){
-            document.getElementsByClassName("keyboardBtn")[i].setAttribute("disabled", "true");
-        }
+        roundEnd();
         document.getElementsByClassName("alienScore")[0].innerHTML = parseFloat(document.getElementsByClassName("alienScore")[0].innerHTML) + 1;
     }
 }
@@ -115,6 +114,12 @@ function hideImage(x,y){
     document.getElementsByClassName(x)[y].classList.add("invisible")
     console.log(x + y);
 };
+
+function roundEnd(){
+    for (i =0; i <26; ++i){
+        document.getElementsByClassName("keyboardBtn")[i].setAttribute("disabled", "true");
+    }
+;}
 
 
 //Logic for Reset Button
