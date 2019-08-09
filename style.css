@@ -1,6 +1,5 @@
 body{
     background-image: url("images/bunker.jpg");
-
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -13,16 +12,23 @@ main{
 h1{
     font-size: 75px;
     text-align: center;
+    background: -webkit-linear-gradient(limegreen, black);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 20px;
 }
 
 .instructions{
     font-size: 20px;
     width: 70%;
-    background-color:black;
+    background-image: url("images/crt.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     border-radius: 10%;
-    color: green;
+    color: limegreen;
     border: 5px;
-    border-color: olivedrab;
+    border-color: black;
     border-style: solid;
     text-align: center;
 }
@@ -39,7 +45,10 @@ h1{
     border: 5px;
     border-color: black;
     border-style: solid;
-    background-color: rgba(266, 266, 266, .3);
+    background-image: url("images/crt.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     border-radius: 25%;
     align-items: center;
     justify-content: center;
@@ -80,14 +89,6 @@ h1{
     max-width: 30%;
 }
 
-/*
-img{
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: cover;
-}
-*/
-
 img{
     max-width: 128px;
     height: auto;
@@ -101,8 +102,6 @@ img{
     width: 30%;
     height: auto;
     border: 5px;
-    border-color: black;
-    border-style: solid;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -111,7 +110,7 @@ img{
 
 .emptyBox{
     font-size: 0px;
-    border-bottom: 5px solid olivedrab;
+    border-bottom: 5px solid limegreen;
     width: 20px;
     height: 20px;
     margin: 5px;
@@ -125,28 +124,38 @@ img{
 
 .fullBox{
     font-size: 20px;
-    border-bottom: 5px solid olivedrab;
+    color: limegreen;
+    border-bottom: 5px solid limegreen;
     margin: 5px;
     width: 20px;
     height: 20px;
+    text-align: center;
 }
 
 .scoreHolder{
     display: flex;
     justify-content: space-between;
     width: 70%;
+    font-size: 20px;
+    color: limegreen;
 }
 
 .scoreBox{
+    font-size: 20px;
     background-color: black;
     border: 5px;
     color: red;
     border-style: solid;
     border-color: olivedrab;
+    text-align: center;
 }
-.alienScore{
-    flex-direction: row;
+
+.aScoreBox, .mScoreBox{
+    background-color: black;
 }
-.marineScore{
-    flex-direction: row-reverse;
+
+.buttonholder{
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
 }

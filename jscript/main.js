@@ -15,8 +15,16 @@ for (let i = 65; i <=90; i++){
     document.getElementsByClassName("keyboard")[0].appendChild(keyBtn); 
 }
 
+document.getElementsByClassName("newGame")[0].addEventListener("click", newGame);
+document.getElementsByClassName("resetGame")[0].addEventListener("click", function(){
+    newGame();
+    document.getElementsByClassName("alienScore")[0].innerHTML = 000;
+    document.getElementsByClassName("marineScore")[0].innerHTML = 000;
+});
+
 //Clears current 'blank boxes', resets 'round counter', and selects new word
-document.getElementsByClassName("newGame")[0].addEventListener("click", function(){
+//document.getElementsByClassName("newGame")[0].addEventListener("click", function(){
+function newGame(){
     //removes old box container
     roundScore = 0;
     roundWrong = 0;
@@ -57,7 +65,7 @@ document.getElementsByClassName("newGame")[0].addEventListener("click", function
         //Remove All Aliens
         //Reset 'Round Score'
         //Reset 'Win Score'
-});
+};
 
 function buttonClick(){
     //Disables button for remainder of round to prevent guessing same letter twice
