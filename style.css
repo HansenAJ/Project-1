@@ -27,7 +27,13 @@ h1{
     text-align: center;
 }
 
+.boxes{
+    display: flex;
+    align-items: center;
+}
+
 .motherBox{
+    display: flex;
     width: 50%;
     height: 100px;
     border: 5px;
@@ -35,6 +41,8 @@ h1{
     border-style: solid;
     background-color: rgba(266, 266, 266, .3);
     border-radius: 25%;
+    align-items: center;
+    justify-content: center;
 }
 
 .spacerBox{
@@ -96,27 +104,22 @@ img{
 
 .emptyBox{
     font-size: 0px;
-    border: 5px;
-    border-color: black;
-    border-style: solid;
+    border-bottom: 5px solid olivedrab;
     width: 20px;
     height: 20px;
+    margin: 5px;
 }
 
 .spaceBox{
     font-size: 0px;
-    border: 5px;
-    border-color:red;
-    border-style: solid;
     width: 20px;
     height: 20px;
 }
 
 .fullBox{
-    font-size: 15px;
-    border: 5px;
-    border-color: black;
-    border-style: solid;
+    font-size: 20px;
+    border-bottom: 5px solid olivedrab;
+    margin: 5px;
     width: 20px;
     height: 20px;
 }
