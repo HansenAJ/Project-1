@@ -35,9 +35,6 @@ function newGame(){
         showImage("marineImage", i);
         hideImage("alienImage", i);
     }
-    //Remove all Aliens
-    //Remove All Marines
-    //Add 6 Marines
     //creates and appends new box container
     boxHolder = document.createElement("div");
     boxHolder.classList.add("boxes");
@@ -59,7 +56,10 @@ function newGame(){
     let keyboardTotal = document.getElementsByClassName("keyboardBtn").length;
     //gets count of all keyboard buttons and re-enables them from previous round
     for (i = 0; i < keyboardTotal; i++){
-        document.getElementsByClassName("keyboardBtn")[i].disabled = false;
+        let clearBtn = document.getElementsByClassName("keyboardBtn")[i]
+        clearBtn.disabled = false;
+        clearBtn.style.backgroundColor = "black";
+        clearBtn.style.color = "limegreen";
     }
         //Add up to Six Space Marines
         //Remove All Aliens

@@ -12,10 +12,16 @@ main{
 h1{
     font-size: 75px;
     text-align: center;
-    background: -webkit-linear-gradient(limegreen, black);
+    background: -webkit-linear-gradient(red, limegreen);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin: 20px;
+}
+.headerBKG{
+    background-image: url("images/crt.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .instructions{
@@ -119,24 +125,24 @@ img{
 .emptyBox{
     font-size: 0px;
     border-bottom: 5px solid limegreen;
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     margin: 5px;
 }
 
 .spaceBox{
     font-size: 0px;
-    width: 20px;
+    width: 30px;
     height: 20px;
 }
 
 .fullBox{
-    font-size: 20px;
+    font-size: 25px;
     color: limegreen;
     border-bottom: 5px solid limegreen;
     margin: 5px;
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     text-align: center;
 }
 
