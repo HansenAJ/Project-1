@@ -70,6 +70,7 @@ function newGame(){
 function buttonClick(){
     //Disables button for remainder of round to prevent guessing same letter twice
     this.disabled = true;
+    console.log(event.target)
     //this.target.stlye.backgroundColor = "gray";
     let checkScore = 0;
     let currentBtn = this.innerHTML;
@@ -110,6 +111,10 @@ function buttonClick(){
     } else if (roundWrong == 6){
         alert("You Lose!")
         roundEnd();
+        //Displays all characters on round loss
+        for(i = 0; i < titleLength; ++i){
+            document.getElementsByClassName("emptyBox")[i].classList.add("fullBox");
+        }
         document.getElementsByClassName("alienScore")[0].innerHTML = parseFloat(document.getElementsByClassName("alienScore")[0].innerHTML) + 1;
     }
 }
