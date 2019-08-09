@@ -1,9 +1,29 @@
+body{
+    background-image: url("images/bunker.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 main{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-image: url("images/bunker.jpg")
+}
+h1{
+    font-size: 75px;
+}
+
+.instructions{
+    font-size: 20px;
+    width: 70%;
+    background-color:black;
+    border-radius: 10%;
+    color: green;
+    border: 5px;
+    border-color: olivedrab;
+    border-style: solid;
+    text-align: center;
 }
 
 .motherBox{
@@ -12,8 +32,13 @@ main{
     border: 5px;
     border-color: black;
     border-style: solid;
+    background-color: rgba(266, 266, 266, .3);
+    border-radius: 25%;
 }
 
+.spacerBox{
+    width: 20%;
+}
 .boxes{
     display: flex;
     flex-direction: row;
@@ -32,11 +57,11 @@ main{
 
 .alienBoard{
     flex-direction: row;
-    width: 45%;
+    width: 40%;
 }
 .marineBoard{
     flex-direction: row-reverse;
-    width: 45%;
+    width: 40%;
 }
 
 .marineImage{
