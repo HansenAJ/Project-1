@@ -24,6 +24,11 @@ h1{
     background-size: cover;
 }
 
+.splitBox{
+    display: flex;
+    align-items: center;
+}
+
 .instructions{
     font-size: 20px;
     width: 70%;
@@ -56,8 +61,8 @@ h1{
 
 .motherBox{
     display: flex;
-    width: 50%;
-    height: 100px;
+    width: 65%;
+    height: 125px;
     border: 5px;
     border-color: black;
     border-style: solid;
@@ -71,7 +76,7 @@ h1{
 }
 
 .spacerBox{
-    width: 20%;
+    width: 10%;
 }
 .boxes{
     display: flex;

@@ -36,22 +36,40 @@ function newGame(){
         hideImage("alienImage", i);
     }
     //creates and appends new box container
-    boxHolder = document.createElement("div");
+    boxHolder = document.createElement("DIV");
     boxHolder.classList.add("boxes");
     document.getElementsByClassName("motherBox")[0].appendChild(boxHolder);
+    let textDivCount = 0;
+    let splitBox = document.createElement("DIV");
+    splitBox.classList.add("splitBox");
+
+    //deleteme
+    let testBox = document.createElement("DIV");
+
+
+    document.getElementsByClassName("boxes")[0].appendChild(splitBox);
     //assigns random title from array to 'movie' and breaks individual letters into each array
     let movieArray = (movieTitles[Math.floor(Math.random()*movieTitles.length)]).split('');
     for (let i = 0; i < movieArray.length; i++){
         let blankBox = document.createElement("DIV"); 
         blankBox.innerHTML = movieArray[i];
         //
-        console.log(blankBox.innerHTML)
+        console.log(testBox.innerHTML)
         if(blankBox.innerHTML == ' '){
+            ++textDivCount;
+            //append split box to boxes
+            splitBox = document.createElement("DIV");
+            splitBox.classList.add("splitBox");
+            
+            document.getElementsByClassName("boxes")[0].appendChild(splitBox);
             blankBox.classList.add("spaceBox")
+            document.getElementsByClassName("splitBox")[textDivCount].appendChild(blankBox); 
         }else{
             blankBox.classList.add("emptyBox")
+            console.log(textDivCount);
+            document.getElementsByClassName("splitBox")[textDivCount].appendChild(blankBox); 
         }
-        document.getElementsByClassName("boxes")[0].appendChild(blankBox); 
+        //document.getElementsByClassName("boxes")[0].appendChild(blankBox); 
     }
     let keyboardTotal = document.getElementsByClassName("keyboardBtn").length;
     //gets count of all keyboard buttons and re-enables them from previous round
