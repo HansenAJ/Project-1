@@ -20,5 +20,7 @@ Functionality:
   Reset: This button resets the score of the game and returns it to it's base state.
 
 Deployed Project : https://hansenaj.github.io/Project-1/
+
 Project Board : https://github.com/HansenAJ/Project-1/projects/1
-WireFrame : 
+
+WireFrame : ./'p1 wireframe'
