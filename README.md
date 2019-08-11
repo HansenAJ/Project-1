@@ -23,4 +23,4 @@ Deployed Project : https://hansenaj.github.io/Project-1/
 
 Project Board : https://github.com/HansenAJ/Project-1/projects/1
 
-[[https://github.com/HansenAJ/repository/blob/master/p1_wireframe.png|alt=Wireframe]]
+[[https://github.com/HansenAJ/Project-1/blob/master/p1%20wireframe.png]
