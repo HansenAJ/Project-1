@@ -10,11 +10,10 @@ for (let i = 65; i <=90; i++){
     keyBtn.innerHTML = String.fromCharCode(i);
     keyBtn.classList.add(String.fromCharCode(i), "keyboardBtn");
     keyBtn.setAttribute("disabled", "true");
-    //**********Test functionality only. Replace with "Button Click" Function once it is created**********
     keyBtn.addEventListener("click", buttonClick);
     document.getElementsByClassName("keyboard")[0].appendChild(keyBtn); 
 }
-
+//add listeners and functionality to New and Reset buttons
 document.getElementsByClassName("newGame")[0].addEventListener("click", newGame);
 document.getElementsByClassName("resetGame")[0].addEventListener("click", function(){
     newGame();
@@ -23,9 +22,8 @@ document.getElementsByClassName("resetGame")[0].addEventListener("click", functi
 });
 
 //Clears current 'blank boxes', resets 'round counter', and selects new word
-//document.getElementsByClassName("newGame")[0].addEventListener("click", function(){
 function newGame(){
-    //removes old box container
+    //removes old box container and resets round score
     roundScore = 0;
     roundWrong = 0;
     let boxHolder = document.getElementsByClassName("boxes")[0];
@@ -42,58 +40,45 @@ function newGame(){
     let textDivCount = 0;
     let splitBox = document.createElement("DIV");
     splitBox.classList.add("splitBox");
-
-    //deleteme
-    let testBox = document.createElement("DIV");
-
-
     document.getElementsByClassName("boxes")[0].appendChild(splitBox);
     //assigns random title from array to 'movie' and breaks individual letters into each array
     let movieArray = (movieTitles[Math.floor(Math.random()*movieTitles.length)]).split('');
     for (let i = 0; i < movieArray.length; i++){
         let blankBox = document.createElement("DIV"); 
         blankBox.innerHTML = movieArray[i];
-        //
         console.log(testBox.innerHTML)
         if(blankBox.innerHTML == ' '){
             ++textDivCount;
-            //append split box to boxes
+            //Appends new 'split box' at each space in word to ensure that long names are broken to new lines in whole groups rather than halfway through a word
             splitBox = document.createElement("DIV");
             splitBox.classList.add("splitBox");
-
             document.getElementsByClassName("boxes")[0].appendChild(splitBox);
-            blankBox.classList.add("spaceBox")
+            blankBox.classList.add("spaceBox");
             document.getElementsByClassName("splitBox")[textDivCount].appendChild(blankBox); 
         }else{
-            blankBox.classList.add("emptyBox")
+            blankBox.classList.add("emptyBox");
             console.log(textDivCount);
             document.getElementsByClassName("splitBox")[textDivCount].appendChild(blankBox); 
         }
-        //document.getElementsByClassName("boxes")[0].appendChild(blankBox); 
     }
     let keyboardTotal = document.getElementsByClassName("keyboardBtn").length;
-    //gets count of all keyboard buttons and re-enables them from previous round
+    //gets count of all keyboard buttons and re-enables them from previous round while setting colors back to original
     for (i = 0; i < keyboardTotal; i++){
-        let clearBtn = document.getElementsByClassName("keyboardBtn")[i]
+        let clearBtn = document.getElementsByClassName("keyboardBtn")[i];
         clearBtn.disabled = false;
         clearBtn.style.backgroundColor = "black";
         clearBtn.style.color = "limegreen";
     }
-        //Add up to Six Space Marines
-        //Remove All Aliens
-        //Reset 'Round Score'
-        //Reset 'Win Score'
 };
 
 function buttonClick(){
     //Disables button for remainder of round to prevent guessing same letter twice
     this.disabled = true;
-    console.log(event.target)
     this.style.backgroundColor = "gray";
     this.style.color = "red";
     let checkScore = 0;
     let currentBtn = this.innerHTML;
-    console.log("You clicked " + currentBtn)
+    console.log("You clicked " + currentBtn);
     //Gets total number of empty boxes available
     let titleLength = document.querySelectorAll(".emptyBox").length;
     console.log("Length Of Your Title= " + titleLength)
@@ -101,20 +86,22 @@ function buttonClick(){
     for (i =0; i <= (titleLength - 1); i++){
         let currentBox = document.getElementsByClassName("emptyBox")[i];
         let boxCheck = (currentBox.innerHTML).toUpperCase();
-        console.log("You clicked " + currentBtn)
-        console.log("The Data in This Box is " + boxCheck)
+        console.log("You clicked " + currentBtn);
+        console.log("The Data in This Box is " + boxCheck);
+        //Displays letters on correct guess an iterates round score
         if(currentBtn == boxCheck){
             console.log("If Tripped!")
             //currentBox.classList.remove("emptyBox")
-            currentBox.classList.add("fullBox")
+            currentBox.classList.add("fullBox");
             roundScore = ++roundScore;
             console.log(roundScore);
             checkScore = ++checkScore;
-            console.log(checkScore)
+            console.log(checkScore);
         }
     }
+    //If no letters match guessed letter it iterates the incorrect guesscounter
     if (checkScore < 1){
-        console.log(checkScore)
+        console.log(checkScore);
         roundWrong = ++roundWrong;
         //Remove Marine
         hideImage("marineImage", (roundWrong - 1));
@@ -127,35 +114,32 @@ function buttonClick(){
         roundEnd();
         /* ****** FIND A SMARTER WAY TO DO THIS ********* */
         document.getElementsByClassName("marineScore")[0].innerHTML = parseFloat(document.getElementsByClassName("marineScore")[0].innerHTML) + 1;
+    //Checks if maximum number of incorrect guesses has been reached
     } else if (roundWrong == 6){
-        alert("You Lose!")
+        alert("You Lose!");
         roundEnd();
         //Displays all characters on round loss
         for(i = 0; i < titleLength; ++i){
             document.getElementsByClassName("emptyBox")[i].classList.add("fullBox");
         }
+        //Adds to Alien Score on round loss
         document.getElementsByClassName("alienScore")[0].innerHTML = parseFloat(document.getElementsByClassName("alienScore")[0].innerHTML) + 1;
     }
 }
 
-//Function Add Image
+//Function make images visible
 function showImage(x,y){
-    document.getElementsByClassName(x)[y].classList.remove("invisible")
+    document.getElementsByClassName(x)[y].classList.remove("invisible");
 };
-//Function Remove image
+//Function make images invisible
 function hideImage(x,y){
-    document.getElementsByClassName(x)[y].classList.add("invisible")
+    document.getElementsByClassName(x)[y].classList.add("invisible");
     console.log(x + y);
 };
 
+//Function to display all remaining letters on round loss
 function roundEnd(){
     for (i =0; i <26; ++i){
         document.getElementsByClassName("keyboardBtn")[i].setAttribute("disabled", "true");
     }
-;}
-
-
-//Logic for Reset Button
-    //Call "New Game"
-    //Reset Alien Score
-    //Reset Marine Score
+};
