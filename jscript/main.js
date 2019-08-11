@@ -46,7 +46,6 @@ function newGame(){
     for (let i = 0; i < movieArray.length; i++){
         let blankBox = document.createElement("DIV"); 
         blankBox.innerHTML = movieArray[i];
-        console.log(testBox.innerHTML)
         if(blankBox.innerHTML == ' '){
             ++textDivCount;
             //Appends new 'split box' at each space in word to ensure that long names are broken to new lines in whole groups rather than halfway through a word
