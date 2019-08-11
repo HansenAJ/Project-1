@@ -18,3 +18,7 @@ Functionality:
   New Game : This button starts a new round of play. A random Sci-Fi movie title is selected with an appropriate number of characters displaying near the top of the screen.
   
   Reset: This button resets the score of the game and returns it to it's base state.
+
+Deployed Project : https://hansenaj.github.io/Project-1/
+Project Board : https://github.com/HansenAJ/Project-1/projects/1
+WireFrame : 
