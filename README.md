@@ -23,4 +23,4 @@ Deployed Project : https://hansenaj.github.io/Project-1/
 
 Project Board : https://github.com/HansenAJ/Project-1/projects/1
 
-WireFrame : ./'p1 wireframe'
+![WireFrame :] (./'p1 wireframe.png')
