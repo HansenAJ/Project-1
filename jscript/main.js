@@ -2,7 +2,7 @@ console.log("Hello World!");
 let roundScore = 0;
 let roundWrong = 0;
 
-let movieTitles = ["Star Wars", "Star Trek", "Starship Troopers", "Space Balls","Even Horizon", "Blade Runner", "Godzilla", "Edge of Tomorrow", "Minority Report", "Alien", "The Termiantor", "RoboCop", "Tron", "Robot Jox", "Buckaroo Banzai", "Back To The Future", "The Iron Giant", "Metropolis", "The Matrix", "Frankenstein", "Planet of The Apes", "Space Odyssey"];
+let movieTitles = ["Star Wars", "Star Trek", "Starship Troopers", "Space Balls","Event Horizon", "Blade Runner", "Godzilla", "Edge of Tomorrow", "Minority Report", "Alien", "The Termiantor", "RoboCop", "Tron", "Robot Jox", "Buckaroo Banzai", "Back To The Future", "The Iron Giant", "Metropolis", "The Matrix", "Frankenstein", "Planet of The Apes", "Space Odyssey"];
 
 //Creates On-screen keyboard and assigns individual classes to each character as well as styling class.
 for (let i = 65; i <=90; i++){
